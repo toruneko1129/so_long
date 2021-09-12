@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:08:03 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/12 23:42:01 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/13 01:26:49 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@
 # define STDOUT 1
 # define STDERR 2
 # define ERROR "Error"
-# define INVALID_ARGS "Usage: ./so_long maps/*.ber"
+# define INVALID_ARGS "Usage: ./so_long maps/<mapname>.ber"
 
-void	puts_error_exit(char *s);
-void	strerror_exit(void);
+int		open_map(const char *filename);
+t_list	*read_map(int fd);
+void	puts_errormsg_exit(char *s);
+void	perror_exit(const char *s);
+void	strerror_exit(int errnum);
 
 #endif

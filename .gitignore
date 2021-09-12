@@ -1,3 +1,5 @@
 so_long
 */*.o
 */*.a
+run.sh
+*.dSYM/*
