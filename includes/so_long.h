@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:08:03 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/12 22:09:37 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/12 23:42:01 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <errno.h>
 
 # define STDIN 0
 # define STDOUT 1
 # define STDERR 2
 # define ERROR "Error"
-# define INVALID_ARGS "Usage: ./so_long *.ber"
+# define INVALID_ARGS "Usage: ./so_long maps/*.ber"
 
 void	puts_error_exit(char *s);
+void	strerror_exit(void);
 
 #endif
