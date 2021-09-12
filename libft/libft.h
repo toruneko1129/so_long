@@ -6,13 +6,14 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 17:26:34 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/08/30 17:28:14 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/12 20:48:31 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "get_next_line_bonus.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
