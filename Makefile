@@ -6,13 +6,14 @@
 #    By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/12 20:58:53 by hkawakit          #+#    #+#              #
-#    Updated: 2021/09/12 20:58:54 by hkawakit         ###   ########.fr        #
+#    Updated: 2021/09/12 21:58:02 by hkawakit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 SRCDIR	=	./srcs
-SRCLIST	=	so_long.c
+SRCLIST	=	so_long.c \
+			error.c
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 OBJDIR	=	./objs
 OBJS	=	$(SRCLIST:%.c=$(OBJDIR)/%.o)
