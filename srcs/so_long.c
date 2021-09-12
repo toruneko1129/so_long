@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:02:16 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/13 01:33:24 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/13 01:44:11 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	check_args(int argc, char **argv)
 		puts_errormsg_exit(INVALID_ARGS);
 }
 
-static void	parse_map(const char *filename)
+static void	load_map(const char *filename)
 {
 	int		fd;
 	t_list	*lst;
@@ -38,6 +38,6 @@ static void	parse_map(const char *filename)
 int	main(int argc, char **argv)
 {
 	check_args(argc, argv);
-	parse_map(argv[1]);
+	load_map(argv[1]);
 	return (0);
 }
