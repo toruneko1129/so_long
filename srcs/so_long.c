@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:02:16 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/13 17:24:46 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/13 18:40:06 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ static void	check_args(int argc, char **argv)
 	if (argc != 2)
 		puts_errormsg_exit(INVALID_ARGS);
 	ext = ft_strrchr(argv[1], '.');
-	if (ext == NULL)
-		puts_errormsg_exit(INVALID_ARGS);
-	if (ft_strncmp(".ber", ext, 5))
+	if (ext == NULL || ft_strncmp(".ber", ext, 5))
 		puts_errormsg_exit(INVALID_ARGS);
 }
 
@@ -41,14 +39,7 @@ static char	**load_map(const char *filename)
 
 static void	parse_map(char **field)
 {
-	char	*msg;
-
-	msg = check_shape_of_map(field);
-	if (msg != NULL)
-	{
-		free_2darray(field);
-		puts_errormsg_exit(msg);
-	}
+	check_shape_of_map(field);
 }
 
 int	main(int argc, char **argv)
