@@ -31,7 +31,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 $(NAME): $(OBJS)
 	make bonus -C $(LIBDIR)
-	$(CC) $(CFLAGS) $(INCLUDE) $(LFLAGS) $^ -o $@ 
+	$(CC) $(CFLAGS) $^ $(INCLUDE) $(LFLAGS) -o $@ 
 
 all: $(NAME) 
 
