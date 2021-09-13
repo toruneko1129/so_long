@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:02:16 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/13 01:44:11 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/13 12:52:48 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	load_map(const char *filename)
 
 	fd = open_map(filename);
 	lst = read_map(fd);
-	//ft_lstclear(&lst, free);
+	ft_lstclear(&lst, free);
 }
 
 int	main(int argc, char **argv)
