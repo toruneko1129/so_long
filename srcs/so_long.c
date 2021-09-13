@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:02:16 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/13 12:52:48 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:24:46 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,39 @@ static void	check_args(int argc, char **argv)
 		puts_errormsg_exit(INVALID_ARGS);
 }
 
-static void	load_map(const char *filename)
+static char	**load_map(const char *filename)
 {
 	int		fd;
 	t_list	*lst;
+	char	**field;
 
 	fd = open_map(filename);
 	lst = read_map(fd);
-	ft_lstclear(&lst, free);
+	close_map(filename, fd, &lst);
+	field = conv_list_to_2darray(&lst);
+	ft_lstclear(&lst, NULL);
+	return (field);
+}
+
+static void	parse_map(char **field)
+{
+	char	*msg;
+
+	msg = check_shape_of_map(field);
+	if (msg != NULL)
+	{
+		free_2darray(field);
+		puts_errormsg_exit(msg);
+	}
 }
 
 int	main(int argc, char **argv)
 {
+	char	**field;
+
 	check_args(argc, argv);
-	load_map(argv[1]);
+	field = load_map(argv[1]);
+	parse_map(field);
+	free_2darray(field);
 	return (0);
 }

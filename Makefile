@@ -6,7 +6,7 @@
 #    By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/12 20:58:53 by hkawakit          #+#    #+#              #
-#    Updated: 2021/09/13 01:45:02 by hkawakit         ###   ########.fr        #
+#    Updated: 2021/09/13 17:25:17 by hkawakit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME	=	so_long
 SRCDIR	=	./srcs
 SRCLIST	=	so_long.c \
 			load_map.c \
-			error.c
+			parse_map.c \
+			error.c \
+			utils.c
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 OBJDIR	=	./objs
 OBJS	=	$(SRCLIST:%.c=$(OBJDIR)/%.o)
