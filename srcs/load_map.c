@@ -29,10 +29,10 @@ t_list	*read_map(int fd)
 	char	*str;
 	t_list	*new;
 
-	errno = 0;
 	lst = NULL;
 	while (1)
 	{
+		errno = 0;
 		str = get_next_line(fd);
 		if (str != NULL)
 			new = ft_lstnew(str);
