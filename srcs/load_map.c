@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 00:37:45 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/13 17:22:07 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/13 21:31:28 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,21 @@ t_list	*read_map(int fd)
 	t_list	*lst;
 	char	*str;
 	t_list	*new;
+	int		cnt;
 
 	lst = NULL;
-	while (1)
+	cnt = 0;
+	while (++cnt)
 	{
 		errno = 0;
 		str = get_next_line(fd);
 		if (str != NULL)
 			new = ft_lstnew(str);
-		if (errno)
+		if (errno || cnt == INT_MAX)
 		{
 			free(str);
 			ft_lstclear(&lst, free);
+			close(fd);
 			strerror_exit(errno);
 		}
 		else if (str == NULL)
@@ -52,8 +55,7 @@ t_list	*read_map(int fd)
 void	close_map(const char *filename, int fd, t_list **lst)
 {
 	errno = 0;
-	close(fd);
-	if (errno)
+	if (close(fd) == -1)
 	{
 		ft_lstclear(lst, free);
 		perror_exit(filename);

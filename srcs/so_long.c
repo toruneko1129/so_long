@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 17:02:16 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/13 18:40:06 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/13 21:40:16 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,20 @@ static char	**load_map(const char *filename)
 
 static void	parse_map(char **field)
 {
-	check_shape_of_map(field);
+	char	*msg;
+
+	msg = check_shape_of_map(field);
+	if (msg != NULL)
+	{
+		free_2darray(field);
+		puts_errormsg_exit(msg);
+	}
+	msg = check_elem_of_map(field);
+	if (msg != NULL)
+	{
+		free_2darray(field);
+		puts_errormsg_exit(msg);
+	}
 }
 
 int	main(int argc, char **argv)
