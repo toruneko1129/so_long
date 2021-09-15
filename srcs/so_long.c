@@ -58,6 +58,6 @@ int	main(int argc, char **argv)
 	check_args(argc, argv);
 	field = load_map(argv[1]);
 	parse_map(field);
-	free_2darray(field);
+	//free_2darray(field);
 	return (0);
 }
