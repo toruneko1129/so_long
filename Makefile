@@ -20,29 +20,35 @@ SRCLIST	=	so_long.c \
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 OBJDIR	=	./objs
 OBJS	=	$(SRCLIST:%.c=$(OBJDIR)/%.o)
-INCLUDE	=	-I./includes
 LIBDIR	=	./libft
 LIBFT	=	ft
+MLXDIR	=	./minilibx-linux
+MLX	=	mlx_Linux
+INCLUDE	=	-I./includes -I$(MLXDIR)
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
-LFLAGS	=	-L$(LIBDIR) -l$(LIBFT)
+LFLAGS	=	-L$(LIBDIR) -l$(LIBFT) -L$(MLXDIR) -l$(MLX) -L/usr/lib -lXext \
+		-lX11 -lm -lz
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -I/usr/include -O3 -c $< -o $@
 
 $(NAME): $(OBJS)
 	make bonus -C $(LIBDIR)
+	make -C $(MLXDIR)
 	$(CC) $(CFLAGS) $^ $(INCLUDE) $(LFLAGS) -o $@ 
 
 all: $(NAME) 
 
 clean:
 	make clean -C $(LIBDIR)
+	make clean -C $(MLXDIR)
 	rm -rf $(OBJDIR)
 
 fclean: clean
 	make fclean -C $(LIBDIR)
+	make clean -C $(MLXDIR)
 	rm -f $(NAME)
 
 re: fclean all

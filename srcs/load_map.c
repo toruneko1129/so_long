@@ -28,17 +28,16 @@ t_list	*read_map(int fd)
 	t_list	*lst;
 	char	*str;
 	t_list	*new;
-	int		cnt;
 
 	lst = NULL;
-	cnt = 0;
-	while (++cnt)
+	while (ft_lstsize(lst) < INT_MAX - 1)
 	{
 		errno = 0;
 		str = get_next_line(fd);
+		new = NULL;
 		if (str != NULL)
 			new = ft_lstnew(str);
-		if (errno || cnt == INT_MAX)
+		if (errno)
 		{
 			free(str);
 			ft_lstclear(&lst, free);

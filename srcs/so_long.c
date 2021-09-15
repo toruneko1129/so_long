@@ -42,12 +42,8 @@ static void	parse_map(char **field)
 	char	*msg;
 
 	msg = check_shape_of_map(field);
-	if (msg != NULL)
-	{
-		free_2darray(field);
-		puts_errormsg_exit(msg);
-	}
-	msg = check_elem_of_map(field);
+	if (msg == NULL)
+		msg = check_elem_of_map(field);
 	if (msg != NULL)
 	{
 		free_2darray(field);
