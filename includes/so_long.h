@@ -13,7 +13,8 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
+# include "libft.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -25,6 +26,14 @@
 # define STDIN 0
 # define STDOUT 1
 # define STDERR 2
+
+//images
+# define IMG_SIZE 64
+# define IMG_SPACE "imgs/space.xpm"
+# define IMG_WALL "imgs/wall.xpm"
+# define IMG_COLLECTIBLE "imgs/collectible1.xpm"
+# define IMG_EXIT "imgs/exit1.xpm"
+# define IMG_PLAYER "imgs/player1.xpm"
 
 //message
 # define ERROR "Error"
@@ -38,6 +47,35 @@
 # define MAP_NO_COLLECTIBLE "There's no collectible on the map."
 # define MAP_NO_EXIT "There's no exit on the map."
 # define MAP_INVALID_POS "There's no/multiple starting position on the map."
+
+typedef struct	s_image
+{
+	void	*img;
+	char	*path;
+	int		w;
+	int		h;
+}	t_image;
+
+typedef struct	s_grid
+{
+	int		x;
+	int		y;
+}	t_grid;
+
+typedef struct	s_data
+{
+	char	**field;
+	int		w;
+	int		h;
+	void	*mlx;
+	void	*win;
+	t_image	space;
+	t_image	wall;
+	t_image	collectible;
+	t_image	exit;
+	t_image	player;
+	t_grid	pos_player;
+}	t_data;
 
 //load_map.c
 int		open_map(const char *filename);
@@ -55,6 +93,8 @@ void	perror_exit(const char *s);
 void	strerror_exit(int errnum);
 
 //utils.c
+void	data_init(t_data *data);
 void	free_2darray(char **arr);
+void	free_data(t_data *data);
 
 #endif

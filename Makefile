@@ -15,6 +15,7 @@ SRCDIR	=	./srcs
 SRCLIST	=	so_long.c \
 			load_map.c \
 			parse_map.c \
+			data_utils.c \
 			error.c \
 			utils.c
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCLIST))
@@ -24,7 +25,7 @@ LIBDIR	=	./libft
 LIBFT	=	ft
 MLXDIR	=	./minilibx-linux
 MLX	=	mlx_Linux
-INCLUDE	=	-I./includes -I$(MLXDIR)
+INCLUDE	=	-I./includes -I$(LIBDIR) -I$(MLXDIR)
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 LFLAGS	=	-L$(LIBDIR) -l$(LIBFT) -L$(MLXDIR) -l$(MLX) -L/usr/lib -lXext \

@@ -53,11 +53,13 @@ static void	parse_map(char **field)
 
 int	main(int argc, char **argv)
 {
-	char	**field;
+	t_data	data;
 
+	ft_bzero(&data, sizeof(data));
 	check_args(argc, argv);
-	field = load_map(argv[1]);
-	parse_map(field);
-	//free_2darray(field);
+	data.field = load_map(argv[1]);
+	parse_map(data.field);
+	data_init(&data);
+	free_2darray(data.field);
 	return (0);
 }
