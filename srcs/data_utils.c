@@ -53,10 +53,12 @@ void	data_init(t_data *data)
 		while (++j < data->h)
 			put_image(data, i, j, (data->field)[j][i]);
 	}
+	mlx_key_hook(data->win, key_hook, data);
+	mlx_hook(data->win, 33, 1L << 17, free_data, data);
 	mlx_loop(data->mlx);
 }
 
-void	free_data(t_data *data)
+int		free_data(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->space.img);
 	mlx_destroy_image(data->mlx, data->wall.img);
@@ -68,4 +70,5 @@ void	free_data(t_data *data)
 	mlx_loop_end(data->mlx);
 	free(data->mlx);
 	free_2darray(data->field);
+	return (0);
 }

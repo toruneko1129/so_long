@@ -16,6 +16,7 @@ SRCLIST	=	so_long.c \
 			load_map.c \
 			parse_map.c \
 			data_utils.c \
+			hook.c \
 			error.c \
 			utils.c
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCLIST))

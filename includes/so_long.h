@@ -35,6 +35,9 @@
 # define IMG_EXIT "imgs/exit1.xpm"
 # define IMG_PLAYER "imgs/player1.xpm"
 
+//keys
+# define ESCAPE 65307
+
 //message
 # define ERROR "Error"
 # define INVALID_ARGS "Usage: ./so_long maps/<mapname>.ber"
@@ -87,14 +90,19 @@ char	**conv_list_to_2darray(t_list **lst);
 char	*check_shape_of_map(char **field);
 char	*check_elem_of_map(char **field);
 
+//data_utils.c
+void	data_init(t_data *data);
+int		free_data(t_data *data);
+
+//hook.c
+int		key_hook(int keycode, t_data *data);
+
 //error.c
 void	puts_errormsg_exit(char *s);
 void	perror_exit(const char *s);
 void	strerror_exit(int errnum);
 
 //utils.c
-void	data_init(t_data *data);
 void	free_2darray(char **arr);
-void	free_data(t_data *data);
 
 #endif
