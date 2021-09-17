@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:08:03 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/13 22:43:11 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/17 23:23:33 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define MAP_INVALID_POS "There's no/multiple starting position on the map."
 # define MALLOC_ERR "Cannot allocate memory"
 
-typedef struct	s_tex
+typedef struct s_tex
 {
 	void	*img;
 	char	*addr;
@@ -61,7 +61,7 @@ typedef struct	s_tex
 	int		endian;
 }	t_tex;
 
-typedef struct	s_image
+typedef struct s_image
 {
 	t_tex	tex;
 	char	*path;
@@ -69,13 +69,13 @@ typedef struct	s_image
 	int		h;
 }	t_image;
 
-typedef struct	s_grid
+typedef struct s_grid
 {
 	int		x;
 	int		y;
 }	t_grid;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	char	**field;
 	int		w;
