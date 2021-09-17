@@ -29,3 +29,17 @@ void	free_2darray(char **arr)
 		free(arr[i]);
 	free(arr);
 }
+
+t_image	get_image_from_char(t_data data, char c)
+{
+	if (c == '0')
+		return (data.space);
+	else if (c == '1')
+		return (data.wall);
+	else if (c == 'C')
+		return (data.collectible);
+	else if (c == 'E')
+		return (data.exit);
+	else
+		return (data.player);
+}

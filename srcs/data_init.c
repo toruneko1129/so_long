@@ -7,13 +7,28 @@ void	 setup_mlx(t_data *data)
 	if (data->mlx == NULL)
 		data_error_exit(data, MALLOC_ERR);
 	data->win = mlx_new_window(data->mlx, IMG_SIZE * data->w, 
-			IMG_SIZE * data->h, "so_long");
+		IMG_SIZE * data->h, "so_long");
 	if (data->win == NULL)
 		data_error_exit(data, MALLOC_ERR);
-	data->tex.img = mlx_new_image(data->mlx, IMG_SIZE * data->w, 
-			IMG_SIZE * data->h);
-	data->tex.addr = mlx_get_data_addr(data->tex.img, &data->tex.bits,
-			&data->tex.line, &data->tex.endian);
-	mlx_hook(data->win, 33, 1L << 17, free_data_exit, data);
-	mlx_loop(data->mlx);
+}
+
+static void	load_image_from_xpm(t_image *image, void *mlx, char *path)
+{
+	image->tex.img = mlx_xpm_file_to_image(mlx, path, &(image->w), &(image->h));
+	image->tex.addr = mlx_get_data_addr(image->tex.img, &(image->tex.bits),
+		&(image->tex.line), &(image->tex.endian));
+	image->path = path;
+}
+
+void	load_images(t_data *data)
+{
+	load_image_from_xpm(&(data->space), data->mlx, IMG_SPACE);
+	load_image_from_xpm(&(data->wall), data->mlx, IMG_WALL);
+	load_image_from_xpm(&(data->collectible), data->mlx, IMG_COLLECTIBLE);
+	load_image_from_xpm(&(data->exit), data->mlx, IMG_EXIT);
+	load_image_from_xpm(&(data->player), data->mlx, IMG_PLAYER);
+	if (data->space.tex.img == NULL || data->wall.tex.img == NULL ||
+		data->collectible.tex.img == NULL || data->exit.tex.img == NULL ||
+		data->player.tex.img == NULL)
+		data_error_exit(data, MALLOC_ERR);
 }

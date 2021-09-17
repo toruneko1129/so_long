@@ -54,6 +54,10 @@ static void	parse_map(char **field)
 static void	data_init(t_data *data)
 {
 	setup_mlx(data);
+	load_images(data);
+	draw_tex(data);
+	mlx_hook(data->win, 33, 1L << 17, free_data_exit, data);
+	mlx_loop(data->mlx);
 }
 
 int	main(int argc, char **argv)

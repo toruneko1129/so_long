@@ -63,7 +63,7 @@ typedef struct	s_tex
 
 typedef struct	s_image
 {
-	void	*img;
+	t_tex	tex;
 	char	*path;
 	int		w;
 	int		h;
@@ -102,7 +102,11 @@ char	*check_shape_of_map(char **field);
 char	*check_elem_of_map(char **field);
 
 //data_init.c
-void	 setup_mlx(t_data *data);
+void	setup_mlx(t_data *data);
+void	load_images(t_data *data);
+
+//draw.c
+void	draw_tex(t_data *data);
 
 //hook.c
 int		key_hook(int keycode, t_data *data);
@@ -120,5 +124,6 @@ void	data_error_exit(t_data *data, char *s);
 //utils.c
 void	get_2darray_size(t_data *data);
 void	free_2darray(char **arr);
+t_image	get_image_from_char(t_data data, char c);
 
 #endif
