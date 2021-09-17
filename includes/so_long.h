@@ -36,7 +36,7 @@
 # define IMG_PLAYER "imgs/player1.xpm"
 
 //keys
-# define ESCAPE 65307
+# define ESCAPE 0xff1b
 
 //message
 # define ERROR "Error"
@@ -106,10 +106,11 @@ void	setup_mlx(t_data *data);
 void	load_images(t_data *data);
 
 //draw.c
-void	draw_tex(t_data *data);
+int		draw_tex(t_data *data);
 
 //hook.c
 int		key_hook(int keycode, t_data *data);
+void	reg_hooks(t_data *data);
 
 //free_exit.c
 void	free_data(t_data *data);

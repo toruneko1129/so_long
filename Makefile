@@ -17,6 +17,7 @@ SRCLIST	=	so_long.c \
 			parse_map.c \
 			data_init.c \
 			draw.c \
+			hook.c \
 			free_exit.c \
 			error.c \
 			utils.c

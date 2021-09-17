@@ -51,12 +51,11 @@ static void	parse_map(char **field)
 	}
 }
 
-static void	data_init(t_data *data)
+static void	play_game(t_data *data)
 {
 	setup_mlx(data);
 	load_images(data);
-	draw_tex(data);
-	mlx_hook(data->win, 33, 1L << 17, free_data_exit, data);
+	reg_hooks(data);
 	mlx_loop(data->mlx);
 }
 
@@ -68,6 +67,6 @@ int	main(int argc, char **argv)
 	check_args(argc, argv);
 	data.field = load_map(argv[1]);
 	parse_map(data.field);
-	data_init(&data);
+	play_game(&data);
 	return (0);
 }

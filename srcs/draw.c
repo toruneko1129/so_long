@@ -66,7 +66,7 @@ static void	draw_map(t_data *data, t_tex *tex)
 	}
 }
 
-void	draw_tex(t_data *data)
+int		draw_tex(t_data *data)
 {
 	t_tex	tex;
 
@@ -78,4 +78,5 @@ void	draw_tex(t_data *data)
 	if (data->tex.img != NULL)
 		mlx_destroy_image(data->mlx, data->tex.img);
 	data->tex = tex;
+	return (0);
 }
