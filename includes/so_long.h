@@ -104,16 +104,16 @@ char	*check_elem_of_map(char **field);
 //data_init.c
 void	setup_mlx(t_data *data);
 void	load_images(t_data *data);
+void	reg_hooks(t_data *data);
 
 //draw.c
 int		draw_tex(t_data *data);
 
 //hook.c
 int		key_hook(int keycode, t_data *data);
-void	reg_hooks(t_data *data);
 
 //free_exit.c
-void	free_data(t_data *data);
+void	free_data_error(t_data *data);
 int		free_data_exit(t_data *data);
 
 //error.c

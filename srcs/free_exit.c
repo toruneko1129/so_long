@@ -12,20 +12,20 @@
 
 #include "so_long.h"
 
-void	free_data(t_data *data)
+static void	destroy_image_nullsafe(void *mlx, void *img)
 {
-	if (data->mlx != NULL && data->space.tex.img != NULL)
-		mlx_destroy_image(data->mlx, data->space.tex.img);
-	if (data->mlx != NULL && data->wall.tex.img != NULL)
-		mlx_destroy_image(data->mlx, data->wall.tex.img);
-	if (data->mlx != NULL && data->collectible.tex.img != NULL)
-		mlx_destroy_image(data->mlx, data->collectible.tex.img);
-	if (data->mlx != NULL && data->exit.tex.img != NULL)
-		mlx_destroy_image(data->mlx, data->exit.tex.img);
-	if (data->mlx != NULL && data->player.tex.img != NULL)
-		mlx_destroy_image(data->mlx, data->player.tex.img);
-	if (data->mlx != NULL && data->tex.img != NULL)
-		mlx_destroy_image(data->mlx, data->tex.img);
+	if (mlx != NULL && img != NULL)
+		mlx_destroy_image(mlx, img);
+}
+
+void	free_data_error(t_data *data)
+{
+	destroy_image_nullsafe(data->mlx, data->space.tex.img);
+	destroy_image_nullsafe(data->mlx, data->wall.tex.img);
+	destroy_image_nullsafe(data->mlx, data->collectible.tex.img);
+	destroy_image_nullsafe(data->mlx, data->exit.tex.img);
+	destroy_image_nullsafe(data->mlx, data->player.tex.img);
+	destroy_image_nullsafe(data->mlx, data->tex.img);
 	if (data->mlx != NULL && data->win != NULL)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx != NULL)

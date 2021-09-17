@@ -35,6 +35,6 @@ void	strerror_exit(int errnum)
 
 void	data_error_exit(t_data *data, char *s)
 {
-	free_data(data);
+	free_data_error(data);
 	puts_errormsg_exit(s);
 }
