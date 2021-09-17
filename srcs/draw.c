@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 23:26:43 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/17 23:27:34 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/18 00:41:41 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	draw_map(t_data *data, t_tex *tex)
 	}
 }
 
-int		draw_tex(t_data *data)
+int	draw_tex(t_data *data)
 {
 	t_tex	tex;
 
