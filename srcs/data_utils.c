@@ -57,18 +57,3 @@ void	data_init(t_data *data)
 	mlx_hook(data->win, 33, 1L << 17, free_data, data);
 	mlx_loop(data->mlx);
 }
-
-int		free_data(t_data *data)
-{
-	mlx_destroy_image(data->mlx, data->space.img);
-	mlx_destroy_image(data->mlx, data->wall.img);
-	mlx_destroy_image(data->mlx, data->collectible.img);
-	mlx_destroy_image(data->mlx, data->exit.img);
-	mlx_destroy_image(data->mlx, data->player.img);
-	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_display(data->mlx);
-	mlx_loop_end(data->mlx);
-	free(data->mlx);
-	free_2darray(data->field);
-	return (0);
-}

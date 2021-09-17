@@ -51,6 +51,11 @@ static void	parse_map(char **field)
 	}
 }
 
+static void	data_init(t_data *data)
+{
+	setup_mlx(data);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -60,6 +65,5 @@ int	main(int argc, char **argv)
 	data.field = load_map(argv[1]);
 	parse_map(data.field);
 	data_init(&data);
-	free_2darray(data.field);
 	return (0);
 }

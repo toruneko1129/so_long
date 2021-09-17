@@ -50,6 +50,16 @@
 # define MAP_NO_COLLECTIBLE "There's no collectible on the map."
 # define MAP_NO_EXIT "There's no exit on the map."
 # define MAP_INVALID_POS "There's no/multiple starting position on the map."
+# define MALLOC_ERR "Cannot allocate memory"
+
+typedef struct	s_tex
+{
+	void	*img;
+	char	*addr;
+	int		bits;
+	int		line;
+	int		endian;
+}	t_tex;
 
 typedef struct	s_image
 {
@@ -72,6 +82,7 @@ typedef struct	s_data
 	int		h;
 	void	*mlx;
 	void	*win;
+	t_tex	tex;
 	t_image	space;
 	t_image	wall;
 	t_image	collectible;
@@ -90,19 +101,24 @@ char	**conv_list_to_2darray(t_list **lst);
 char	*check_shape_of_map(char **field);
 char	*check_elem_of_map(char **field);
 
-//data_utils.c
-void	data_init(t_data *data);
-int		free_data(t_data *data);
+//data_init.c
+void	 setup_mlx(t_data *data);
 
 //hook.c
 int		key_hook(int keycode, t_data *data);
+
+//free_exit.c
+void	free_data(t_data *data);
+int		free_data_exit(t_data *data);
 
 //error.c
 void	puts_errormsg_exit(char *s);
 void	perror_exit(const char *s);
 void	strerror_exit(int errnum);
+void	data_error_exit(t_data *data, char *s);
 
 //utils.c
+void	get_2darray_size(t_data *data);
 void	free_2darray(char **arr);
 
 #endif

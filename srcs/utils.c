@@ -12,6 +12,14 @@
 
 #include "so_long.h"
 
+void	get_2darray_size(t_data *data)
+{
+	data->h = 0;
+	while ((data->field)[data->h] != NULL)
+		++(data->h);
+	data->w = ft_strlen((data->field)[0]);
+}
+
 void	free_2darray(char **arr)
 {
 	int		i;

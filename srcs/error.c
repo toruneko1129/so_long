@@ -32,3 +32,9 @@ void	strerror_exit(int errnum)
 	ft_putendl_fd(strerror(errnum), STDERR);
 	exit(EXIT_FAILURE);
 }
+
+void	data_error_exit(t_data *data, char *s)
+{
+	free_data(data);
+	puts_errormsg_exit(s);
+}
