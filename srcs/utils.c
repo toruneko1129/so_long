@@ -39,7 +39,7 @@ t_image	get_image_from_char(t_data data, char c)
 	else if (c == 'C')
 		return ((data.collectible)[data.sprite]);
 	else if (c == 'E')
-		return (data.exit);
+		return ((data.exit)[data.sprite]);
 	else
 		return (data.player);
 }

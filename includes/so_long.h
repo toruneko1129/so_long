@@ -37,7 +37,8 @@
 # define IMG_WALL "imgs/wall.xpm"
 # define IMG_COLLECTIBLE1 "imgs/collectible1.xpm"
 # define IMG_COLLECTIBLE2 "imgs/collectible2.xpm"
-# define IMG_EXIT "imgs/exit1.xpm"
+# define IMG_EXIT1 "imgs/exit1.xpm"
+# define IMG_EXIT2 "imgs/exit2.xpm"
 # define IMG_PLAYER "imgs/player1.xpm"
 # define SWITCH_INTERVAL 500
 
@@ -94,7 +95,7 @@ typedef struct s_data
 	t_image	space;
 	t_image	wall;
 	t_image	collectible[2];
-	t_image	exit;
+	t_image	exit[2];
 	t_image	player;
 	t_grid	pos_player;
 }	t_data;
@@ -117,6 +118,7 @@ void	reg_hooks(t_data *data);
 
 //load_image_utils.c
 int		load_collectible(t_data *data);
+int		load_exit(t_data *data);
 
 //draw.c
 int		draw_tex(t_data *data);

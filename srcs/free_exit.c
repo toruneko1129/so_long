@@ -26,8 +26,10 @@ void	free_data_error(t_data *data)
 	destroy_image_nullsafe(data->mlx, data->space.tex.img);
 	destroy_image_nullsafe(data->mlx, data->wall.tex.img);
 	while (++i < 2)
+	{
 		destroy_image_nullsafe(data->mlx, (data->collectible)[i].tex.img);
-	destroy_image_nullsafe(data->mlx, data->exit.tex.img);
+		destroy_image_nullsafe(data->mlx, (data->exit)[i].tex.img);
+	}
 	destroy_image_nullsafe(data->mlx, data->player.tex.img);
 	destroy_image_nullsafe(data->mlx, data->tex.img);
 	if (data->mlx != NULL && data->win != NULL)
@@ -47,8 +49,10 @@ int	free_data_exit(t_data *data)
 	mlx_destroy_image(data->mlx, data->space.tex.img);
 	mlx_destroy_image(data->mlx, data->wall.tex.img);
 	while (++i < 2)
+	{
 		mlx_destroy_image(data->mlx, (data->collectible)[i].tex.img);
-	mlx_destroy_image(data->mlx, data->exit.tex.img);
+		mlx_destroy_image(data->mlx, (data->exit)[i].tex.img);
+	}
 	mlx_destroy_image(data->mlx, data->player.tex.img);
 	mlx_destroy_image(data->mlx, data->tex.img);
 	mlx_destroy_window(data->mlx, data->win);
