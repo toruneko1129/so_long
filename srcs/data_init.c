@@ -50,5 +50,5 @@ void	reg_hooks(t_data *data)
 	mlx_expose_hook(data->win, draw_tex, data);
 	mlx_key_hook(data->win, key_hook, data);
 	mlx_hook(data->win, 33, 1L << 17, free_data_exit, data);
-	mlx_loop_hook(data->win, loop_hook, data);
+	mlx_loop_hook(data->mlx, loop_hook, data);
 }

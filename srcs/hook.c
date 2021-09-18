@@ -26,7 +26,11 @@ int	loop_hook(t_data *data)
 {
 	static int	cnt = 0;
 
-	if (++cnt == 100)
+	if (++cnt == SWITCH_INTERVAL)
+	{
 		data->sprite ^= 1;
+		draw_tex(data);
+	}
+	cnt %= SWITCH_INTERVAL;
 	return (0);
 }

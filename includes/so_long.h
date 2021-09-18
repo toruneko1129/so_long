@@ -39,6 +39,7 @@
 # define IMG_COLLECTIBLE2 "imgs/collectible2.xpm"
 # define IMG_EXIT "imgs/exit1.xpm"
 # define IMG_PLAYER "imgs/player1.xpm"
+# define SWITCH_INTERVAL 500
 
 //keys
 # define ESCAPE 0xff1b
