@@ -37,7 +37,7 @@ t_image	get_image_from_char(t_data data, char c)
 	else if (c == '1')
 		return (data.wall);
 	else if (c == 'C')
-		return (data.collectible);
+		return ((data.collectible)[data.sprite]);
 	else if (c == 'E')
 		return (data.exit);
 	else

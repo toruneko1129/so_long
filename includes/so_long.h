@@ -22,6 +22,10 @@
 # include <string.h>
 # include <errno.h>
 
+//status
+# define SUCCESS 0
+# define FAILED 1
+
 //file descriptor
 # define STDIN 0
 # define STDOUT 1
@@ -31,7 +35,8 @@
 # define IMG_SIZE 64
 # define IMG_SPACE "imgs/space.xpm"
 # define IMG_WALL "imgs/wall.xpm"
-# define IMG_COLLECTIBLE "imgs/collectible1.xpm"
+# define IMG_COLLECTIBLE1 "imgs/collectible1.xpm"
+# define IMG_COLLECTIBLE2 "imgs/collectible2.xpm"
 # define IMG_EXIT "imgs/exit1.xpm"
 # define IMG_PLAYER "imgs/player1.xpm"
 
@@ -52,6 +57,7 @@
 # define MAP_INVALID_POS "There's no/multiple starting position on the map."
 # define MALLOC_ERR "Cannot allocate memory"
 
+//structs
 typedef struct s_tex
 {
 	void	*img;
@@ -80,12 +86,13 @@ typedef struct s_data
 	char	**field;
 	int		w;
 	int		h;
+	int		sprite;
 	void	*mlx;
 	void	*win;
 	t_tex	tex;
 	t_image	space;
 	t_image	wall;
-	t_image	collectible;
+	t_image	collectible[2];
 	t_image	exit;
 	t_image	player;
 	t_grid	pos_player;
@@ -103,14 +110,19 @@ char	*check_elem_of_map(char **field);
 
 //data_init.c
 void	setup_mlx(t_data *data);
+void	load_image_from_xpm(t_image *image, void *mlx, char *path);
 void	load_images(t_data *data);
 void	reg_hooks(t_data *data);
+
+//load_image_utils.c
+int		load_collectible(t_data *data);
 
 //draw.c
 int		draw_tex(t_data *data);
 
 //hook.c
 int		key_hook(int keycode, t_data *data);
+int		loop_hook(t_data *data);
 
 //free_exit.c
 void	free_data_error(t_data *data);

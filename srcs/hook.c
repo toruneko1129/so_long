@@ -21,3 +21,12 @@ int	key_hook(int keycode, t_data *data)
 	}
 	return (keycode);
 }
+
+int	loop_hook(t_data *data)
+{
+	static int	cnt = 0;
+
+	if (++cnt == 100)
+		data->sprite ^= 1;
+	return (0);
+}

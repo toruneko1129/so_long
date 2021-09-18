@@ -72,6 +72,8 @@ int	draw_tex(t_data *data)
 
 	tex.img = mlx_new_image(data->mlx, IMG_SIZE * data->w,
 			IMG_SIZE * data->h);
+	if (tex.img == NULL)
+		data_error_exit(data, MALLOC_ERR);
 	tex.addr = mlx_get_data_addr(tex.img, &tex.bits, &tex.line, &tex.endian);
 	draw_map(data, &tex);
 	mlx_put_image_to_window(data->mlx, data->win, tex.img, 0, 0);
