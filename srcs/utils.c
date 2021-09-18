@@ -41,5 +41,5 @@ t_image	get_image_from_char(t_data data, char c)
 	else if (c == 'E')
 		return ((data.exit)[data.sprite]);
 	else
-		return (data.player);
+		return ((data.player)[data.player_dir + data.sprite]);
 }

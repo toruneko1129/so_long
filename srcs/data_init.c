@@ -37,10 +37,9 @@ void	load_images(t_data *data)
 	data->sprite = 0;
 	load_image_from_xpm(&(data->space), data->mlx, IMG_SPACE);
 	load_image_from_xpm(&(data->wall), data->mlx, IMG_WALL);
-	load_image_from_xpm(&(data->player), data->mlx, IMG_PLAYER);
 	if (data->space.tex.img == NULL || data->wall.tex.img == NULL
 		|| load_collectible(data) || load_exit(data)
-		|| data->player.tex.img == NULL)
+		|| load_player(data))
 		data_error_exit(data, MALLOC_ERR);
 }
 
@@ -50,4 +49,5 @@ void	reg_hooks(t_data *data)
 	mlx_key_hook(data->win, key_hook, data);
 	mlx_hook(data->win, 33, 1L << 17, free_data_exit, data);
 	mlx_loop_hook(data->mlx, loop_hook, data);
+	mlx_loop(data->mlx);
 }

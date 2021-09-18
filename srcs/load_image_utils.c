@@ -47,3 +47,27 @@ int	load_exit(t_data *data)
 	}
 	return (SUCCESS);
 }
+
+int	load_player(t_data *data)
+{
+	const char	*path[8] =
+			{IMG_PLAYER1,
+			IMG_PLAYER2,
+			IMG_PLAYER3,
+			IMG_PLAYER4,
+			IMG_PLAYER5,
+			IMG_PLAYER6,
+			IMG_PLAYER7,
+			IMG_PLAYER8};
+	int			i;
+
+	i = -1;
+	while (++i < 8)
+	{
+		load_image_from_xpm(&((data->player)[i]), data->mlx,
+			(char *)path[i]);
+		if (data->player[i].tex.img == NULL)
+			return (FAILED);
+	}
+	return (SUCCESS);
+}

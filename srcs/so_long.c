@@ -56,7 +56,6 @@ static void	play_game(t_data *data)
 	setup_mlx(data);
 	load_images(data);
 	reg_hooks(data);
-	mlx_loop(data->mlx);
 }
 
 int	main(int argc, char **argv)

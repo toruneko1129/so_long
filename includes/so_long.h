@@ -39,7 +39,14 @@
 # define IMG_COLLECTIBLE2 "imgs/collectible2.xpm"
 # define IMG_EXIT1 "imgs/exit1.xpm"
 # define IMG_EXIT2 "imgs/exit2.xpm"
-# define IMG_PLAYER "imgs/player1.xpm"
+# define IMG_PLAYER1 "imgs/player1.xpm"
+# define IMG_PLAYER2 "imgs/player2.xpm"
+# define IMG_PLAYER3 "imgs/player3.xpm"
+# define IMG_PLAYER4 "imgs/player4.xpm"
+# define IMG_PLAYER5 "imgs/player5.xpm"
+# define IMG_PLAYER6 "imgs/player6.xpm"
+# define IMG_PLAYER7 "imgs/player7.xpm"
+# define IMG_PLAYER8 "imgs/player8.xpm"
 # define SWITCH_INTERVAL 500
 
 //keys
@@ -89,6 +96,7 @@ typedef struct s_data
 	int		w;
 	int		h;
 	int		sprite;
+	int		player_dir;
 	void	*mlx;
 	void	*win;
 	t_tex	tex;
@@ -96,7 +104,7 @@ typedef struct s_data
 	t_image	wall;
 	t_image	collectible[2];
 	t_image	exit[2];
-	t_image	player;
+	t_image	player[8];
 	t_grid	pos_player;
 }	t_data;
 
@@ -119,6 +127,7 @@ void	reg_hooks(t_data *data);
 //load_image_utils.c
 int		load_collectible(t_data *data);
 int		load_exit(t_data *data);
+int		load_player(t_data *data);
 
 //draw.c
 int		draw_tex(t_data *data);
