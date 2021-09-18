@@ -14,13 +14,23 @@
 
 int	key_hook(int keycode, t_data *data)
 {
+	static int	cnt = 0;
+
 	if (keycode == ESCAPE)
 	{
-		ft_putendl_fd("KeyboardInterrupt", STDERR);
+		ft_putendl_fd(get_msg_from_keycode(keycode), STDERR);
 		free_data_exit(data);
 	}
 	else if (keycode == W || keycode == A || keycode == S || keycode == D)
-		move_player(keycode, data);
+	{
+		if (!move_player(keycode, data))
+			printf("Move %s, cnt:%d\n", get_msg_from_keycode(keycode), ++cnt);
+		if (data->cnt_c == 0 && data->is_exit_player)
+		{
+			printf("%s score:%d\n", CLEAR, cnt);
+			free_data_exit(data);
+		}
+	}
 	return (keycode);
 }
 

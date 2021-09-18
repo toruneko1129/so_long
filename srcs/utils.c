@@ -43,3 +43,18 @@ t_image	get_image_from_char(t_data data, char c)
 	else
 		return ((data.player)[data.player_dir + data.sprite]);
 }
+
+char	*get_msg_from_keycode(int keycode)
+{
+	if (keycode == ESCAPE)
+		return ("KeyboardInterrupt");
+	else if (keycode == W)
+		return ("UP   ");
+	else if (keycode == S)
+		return ("DOWN ");
+	else if (keycode == D)
+		return ("RIGHT");
+	else if (keycode == A)
+		return ("LEFT ");
+	return (NULL);
+}

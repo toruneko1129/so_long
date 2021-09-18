@@ -57,6 +57,9 @@
 # define D 0x0064
 
 //message
+# define CLEAR "You cleared this stage!!!"
+
+//error message
 # define ERROR "Error"
 # define INVALID_ARGS "Usage: ./so_long maps/<mapname>.ber"
 # define MAP_EMPTY "Map is empty."
@@ -144,7 +147,7 @@ int		key_hook(int keycode, t_data *data);
 int		loop_hook(t_data *data);
 
 //move.c
-void	move_player(int keycode, t_data *data);
+int		move_player(int keycode, t_data *data);
 
 //free_exit.c
 void	free_data_error(t_data *data);
@@ -160,5 +163,6 @@ void	data_error_exit(t_data *data, char *s);
 void	get_2darray_size(t_data *data);
 void	free_2darray(char **arr);
 t_image	get_image_from_char(t_data data, char c);
+char	*get_msg_from_keycode(int keycode);
 
 #endif
