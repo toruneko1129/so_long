@@ -12,9 +12,28 @@
 
 #include "so_long.h"
 
+void	count_collectible(t_data *data)
+{
+	int		i;
+	int		j;
+
+	get_2darray_size(data);
+	i = -1;
+	while (++i < data->h)
+	{
+		j = -1;
+		while (++j < data->w)
+		{
+			if ((data->field)[i][j] == 'C')
+				++(data->cnt_c);
+		}
+	}
+	printf("%d\n", data->cnt_c);
+	printf("%d\n", data->is_exit);
+}
+
 void	setup_mlx(t_data *data)
 {
-	get_2darray_size(data);
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
 		data_error_exit(data, MALLOC_ERR);

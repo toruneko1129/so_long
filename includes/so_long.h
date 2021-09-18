@@ -47,7 +47,7 @@
 # define IMG_PLAYER6 "imgs/player6.xpm"
 # define IMG_PLAYER7 "imgs/player7.xpm"
 # define IMG_PLAYER8 "imgs/player8.xpm"
-# define SWITCH_INTERVAL 500
+# define SWITCH_INTERVAL 10000
 
 //keys
 # define ESCAPE 0xff1b
@@ -95,6 +95,8 @@ typedef struct s_data
 	char	**field;
 	int		w;
 	int		h;
+	int		cnt_c;
+	int		is_exit;
 	int		sprite;
 	int		player_dir;
 	void	*mlx;
@@ -119,6 +121,7 @@ char	*check_shape_of_map(char **field);
 char	*check_elem_of_map(char **field);
 
 //data_init.c
+void	count_collectible(t_data *data);
 void	setup_mlx(t_data *data);
 void	load_image_from_xpm(t_image *image, void *mlx, char *path);
 void	load_images(t_data *data);

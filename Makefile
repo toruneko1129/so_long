@@ -33,7 +33,7 @@ INCLUDE	=	-I./includes -I$(LIBDIR) -I$(MLXDIR)
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 LFLAGS	=	-L$(LIBDIR) -l$(LIBFT) -L$(MLXDIR) -l$(MLX) -L/usr/lib -lXext \
-		-lX11 -lm -lz
+		-lX11 -lm
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	mkdir -p $(OBJDIR)
