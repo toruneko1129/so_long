@@ -24,7 +24,8 @@ int	key_hook(int keycode, t_data *data)
 	else if (keycode == W || keycode == A || keycode == S || keycode == D)
 	{
 		if (!move_player(keycode, data))
-			printf("Move %s, cnt:%d\n", get_msg_from_keycode(keycode), ++cnt);
+			printf("Move %s, score:%d\n", get_msg_from_keycode(keycode),
+				++cnt);
 		if (data->cnt_c == 0 && data->is_exit_player)
 		{
 			printf("%s score:%d\n", CLEAR, cnt);
