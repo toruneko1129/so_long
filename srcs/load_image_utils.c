@@ -62,6 +62,7 @@ int	load_player(t_data *data)
 	int			i;
 
 	i = -1;
+	//debug
 	while (++i < 8)
 	{
 		load_image_from_xpm(&((data->player)[i]), data->mlx,

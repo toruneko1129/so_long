@@ -28,8 +28,6 @@ void	count_collectible(t_data *data)
 				++(data->cnt_c);
 		}
 	}
-	printf("%d\n", data->cnt_c);
-	printf("%d\n", data->is_exit);
 }
 
 void	setup_mlx(t_data *data)

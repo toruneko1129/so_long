@@ -28,12 +28,12 @@ OBJS	=	$(SRCLIST:%.c=$(OBJDIR)/%.o)
 LIBDIR	=	./libft
 LIBFT	=	ft
 MLXDIR	=	./minilibx-linux
-MLX	=	mlx_Linux
+MLX		=	mlx_Linux
 INCLUDE	=	-I./includes -I$(LIBDIR) -I$(MLXDIR)
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
-LFLAGS	=	-L$(LIBDIR) -l$(LIBFT) -L$(MLXDIR) -l$(MLX) -L/usr/lib -lXext \
-		-lX11 -lm
+LFLAGS	=	-L$(LIBDIR) -l$(LIBFT) -L$(MLXDIR) -l$(MLX) -L/usr/lib/ -lXext \
+			-lX11 -lm
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	mkdir -p $(OBJDIR)
