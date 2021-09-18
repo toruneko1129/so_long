@@ -19,6 +19,7 @@ SRCLIST	=	so_long.c \
 			load_image_utils.c \
 			draw.c \
 			hook.c \
+			move.c \
 			free_exit.c \
 			error.c \
 			utils.c

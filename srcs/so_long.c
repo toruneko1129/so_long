@@ -53,7 +53,7 @@ static void	parse_map(char **field)
 
 static void	play_game(t_data *data)
 {
-	count_collectible(data);
+	get_mapinfo(data);
 	setup_mlx(data);
 	load_images(data);
 	reg_hooks(data);

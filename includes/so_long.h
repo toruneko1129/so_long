@@ -51,6 +51,10 @@
 
 //keys
 # define ESCAPE 0xff1b
+# define W 0x0077
+# define A 0x0061
+# define S 0x0073
+# define D 0x0064
 
 //message
 # define ERROR "Error"
@@ -96,7 +100,7 @@ typedef struct s_data
 	int		w;
 	int		h;
 	int		cnt_c;
-	int		is_exit;
+	int		is_exit_player;
 	int		sprite;
 	int		player_dir;
 	void	*mlx;
@@ -121,7 +125,7 @@ char	*check_shape_of_map(char **field);
 char	*check_elem_of_map(char **field);
 
 //data_init.c
-void	count_collectible(t_data *data);
+void	get_mapinfo(t_data *data);
 void	setup_mlx(t_data *data);
 void	load_image_from_xpm(t_image *image, void *mlx, char *path);
 void	load_images(t_data *data);
@@ -138,6 +142,9 @@ int		draw_tex(t_data *data);
 //hook.c
 int		key_hook(int keycode, t_data *data);
 int		loop_hook(t_data *data);
+
+//move.c
+void	move_player(int keycode, t_data *data);
 
 //free_exit.c
 void	free_data_error(t_data *data);

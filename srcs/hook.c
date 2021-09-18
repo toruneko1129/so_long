@@ -16,9 +16,11 @@ int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == ESCAPE)
 	{
-		printf("%s\n", "KeyboardInterrupt");
+		ft_putendl_fd("KeyboardInterrupt", STDERR);
 		free_data_exit(data);
 	}
+	else if (keycode == W || keycode == A || keycode == S || keycode == D)
+		move_player(keycode, data);
 	return (keycode);
 }
 
