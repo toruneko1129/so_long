@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:08:03 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/17 23:23:33 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/19 21:53:58 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,56 +140,56 @@ typedef struct s_data
 }	t_data;
 
 //load_map_bonus.c
-int		open_map(const char *filename);
-t_list	*read_map(int fd);
-void	close_map(const char *filename, int fd, t_list **lst);
-char	**conv_list_to_2darray(t_list **lst);
+int				open_map(const char *filename);
+t_list			*read_map(int fd);
+void			close_map(const char *filename, int fd, t_list **lst);
+char			**conv_list_to_2darray(t_list **lst);
 
 //parse_map_bonus.c
-char	*check_shape_of_map(char **field);
-char	*check_elem_of_map(char **field);
+char			*check_shape_of_map(char **field);
+char			*check_elem_of_map(char **field);
 
 //random_bonus.c
 unsigned int	ft_rand(void);
 void			ft_seed(int seed);
 
 //data_init_bonus.c
-void	get_mapinfo(t_data *data);
-void	setup_mlx(t_data *data);
-void	load_image_from_xpm(t_image *image, void *mlx, char *path);
-void	load_images(t_data *data);
-void	reg_hooks(t_data *data);
+void			get_mapinfo(t_data *data);
+void			setup_mlx(t_data *data);
+void			load_image_from_xpm(t_image *image, void *mlx, char *path);
+void			load_images(t_data *data);
+void			reg_hooks(t_data *data);
 
 //load_image_utils_bonus.c
-int		load_collectible(t_data *data);
-int		load_exit(t_data *data);
-int		load_player(t_data *data);
-int		load_enemy(t_data *data);
+int				load_collectible(t_data *data);
+int				load_exit(t_data *data);
+int				load_player(t_data *data);
+int				load_enemy(t_data *data);
 
 //draw_bonus.c
-int		draw_tex(t_data *data);
+int				draw_tex(t_data *data);
 
 //hook_bonus.c
-int		key_hook(int keycode, t_data *data);
-int		loop_hook(t_data *data);
+int				key_hook(int keycode, t_data *data);
+int				loop_hook(t_data *data);
 
 //move_bonus.c
-int		move_player(int keycode, t_data *data);
+int				move_player(int keycode, t_data *data);
 
 //free_exit_bonus.c
-void	free_data_error(t_data *data);
-int		free_data_exit(t_data *data);
+void			free_data_error(t_data *data);
+int				free_data_exit(t_data *data);
 
 //error_bonus.c
-void	puts_errormsg_exit(char *s);
-void	perror_exit(const char *s);
-void	strerror_exit(int errnum);
-void	data_error_exit(t_data *data, char *s);
+void			puts_errormsg_exit(char *s);
+void			perror_exit(const char *s);
+void			strerror_exit(int errnum);
+void			data_error_exit(t_data *data, char *s);
 
 //utils_bonus.c
-void	get_2darray_size(t_data *data);
-void	free_2darray(char **arr);
-t_image	get_image_from_char(t_data data, char c);
-char	*get_msg_from_keycode(int keycode);
+void			get_2darray_size(t_data *data);
+void			free_2darray(char **arr);
+t_image			get_image_from_char(t_data data, char c);
+char			*get_msg_from_keycode(int keycode);
 
 #endif
