@@ -47,6 +47,9 @@
 # define IMG_PLAYER6 "imgs/player6.xpm"
 # define IMG_PLAYER7 "imgs/player7.xpm"
 # define IMG_PLAYER8 "imgs/player8.xpm"
+# define IMG_NUM_OF_COLLECTIBLE 2
+# define IMG_NUM_OF_EXIT 2
+# define IMG_NUM_OF_PLAYER 8
 # define SWITCH_INTERVAL 10000
 
 //keys

@@ -14,13 +14,13 @@
 
 int	load_collectible(t_data *data)
 {
-	const char	*path[2] =
+	const char	*path[IMG_NUM_OF_COLLECTIBLE] =
 			{IMG_COLLECTIBLE1,
 			IMG_COLLECTIBLE2};
 	int			i;
 
 	i = -1;
-	while (++i < 2)
+	while (++i < IMG_NUM_OF_COLLECTIBLE)
 	{
 		load_image_from_xpm(&((data->collectible)[i]), data->mlx,
 			(char *)path[i]);
@@ -32,13 +32,13 @@ int	load_collectible(t_data *data)
 
 int	load_exit(t_data *data)
 {
-	const char	*path[2] =
+	const char	*path[IMG_NUM_OF_EXIT] =
 			{IMG_EXIT1,
 			IMG_EXIT2};
 	int			i;
 
 	i = -1;
-	while (++i < 2)
+	while (++i < IMG_NUM_OF_EXIT)
 	{
 		load_image_from_xpm(&((data->exit)[i]), data->mlx,
 			(char *)path[i]);
@@ -50,7 +50,7 @@ int	load_exit(t_data *data)
 
 int	load_player(t_data *data)
 {
-	const char	*path[8] =
+	const char	*path[IMG_NUM_OF_PLAYER] =
 			{IMG_PLAYER1,
 			IMG_PLAYER2,
 			IMG_PLAYER3,
@@ -62,7 +62,7 @@ int	load_player(t_data *data)
 	int			i;
 
 	i = -1;
-	while (++i < 8)
+	while (++i < IMG_NUM_OF_PLAYER)
 	{
 		load_image_from_xpm(&((data->player)[i]), data->mlx,
 			(char *)path[i]);
