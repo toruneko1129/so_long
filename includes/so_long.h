@@ -114,9 +114,9 @@ typedef struct s_data
 	t_tex	tex;
 	t_image	space;
 	t_image	wall;
-	t_image	collectible[2];
-	t_image	exit[2];
-	t_image	player[8];
+	t_image	collectible[IMG_NUM_OF_COLLECTIBLE];
+	t_image	exit[IMG_NUM_OF_EXIT];
+	t_image	player[IMG_NUM_OF_PLAYER];
 	t_grid	pos_player;
 }	t_data;
 

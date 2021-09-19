@@ -58,7 +58,7 @@ void	load_images(t_data *data)
 	load_image_from_xpm(&(data->wall), data->mlx, IMG_WALL);
 	if (data->space.tex.img == NULL || data->wall.tex.img == NULL
 		|| load_collectible(data) || load_exit(data)
-		|| load_player(data))
+		|| load_player(data) || load_enemy(data))
 		data_error_exit(data, MALLOC_ERR);
 }
 

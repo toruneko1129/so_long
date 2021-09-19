@@ -71,3 +71,27 @@ int	load_player(t_data *data)
 	}
 	return (SUCCESS);
 }
+
+int	load_enemy(t_data *data)
+{
+	const char	*path[IMG_NUM_OF_ENEMY] =
+			{IMG_ENEMY1,
+			IMG_ENEMY2,
+			IMG_ENEMY3,
+			IMG_ENEMY4,
+			IMG_ENEMY5,
+			IMG_ENEMY6,
+			IMG_ENEMY7,
+			IMG_ENEMY8};
+	int			i;
+
+	i = -1;
+	while (++i < IMG_NUM_OF_ENEMY)
+	{
+		load_image_from_xpm(&((data->enemy)[i]), data->mlx,
+			(char *)path[i]);
+		if (data->enemy[i].tex.img == NULL)
+			return (FAILED);
+	}
+	return (SUCCESS);
+}

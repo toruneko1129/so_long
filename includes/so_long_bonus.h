@@ -47,9 +47,18 @@
 # define IMG_PLAYER6 "imgs/player6.xpm"
 # define IMG_PLAYER7 "imgs/player7.xpm"
 # define IMG_PLAYER8 "imgs/player8.xpm"
+# define IMG_ENEMY1 "imgs/enemy1.xpm"
+# define IMG_ENEMY2 "imgs/enemy2.xpm"
+# define IMG_ENEMY3 "imgs/enemy3.xpm"
+# define IMG_ENEMY4 "imgs/enemy4.xpm"
+# define IMG_ENEMY5 "imgs/enemy5.xpm"
+# define IMG_ENEMY6 "imgs/enemy6.xpm"
+# define IMG_ENEMY7 "imgs/enemy7.xpm"
+# define IMG_ENEMY8 "imgs/enemy8.xpm"
 # define IMG_NUM_OF_COLLECTIBLE 2
 # define IMG_NUM_OF_EXIT 2
 # define IMG_NUM_OF_PLAYER 8
+# define IMG_NUM_OF_ENEMY 8
 # define SWITCH_INTERVAL 10000
 
 //keys
@@ -109,15 +118,18 @@ typedef struct s_data
 	int		is_exit_player;
 	int		sprite;
 	int		player_dir;
+	int		enemy_dir;
 	void	*mlx;
 	void	*win;
 	t_tex	tex;
 	t_image	space;
 	t_image	wall;
-	t_image	collectible[2];
-	t_image	exit[2];
-	t_image	player[8];
+	t_image	collectible[IMG_NUM_OF_COLLECTIBLE];
+	t_image	exit[IMG_NUM_OF_EXIT];
+	t_image	player[IMG_NUM_OF_PLAYER];
+	t_image	enemy[IMG_NUM_OF_ENEMY];
 	t_grid	pos_player;
+	t_grid	pos_enemy;
 }	t_data;
 
 //load_map.c
@@ -141,6 +153,7 @@ void	reg_hooks(t_data *data);
 int		load_collectible(t_data *data);
 int		load_exit(t_data *data);
 int		load_player(t_data *data);
+int		load_enemy(t_data *data);
 
 //draw.c
 int		draw_tex(t_data *data);

@@ -47,9 +47,10 @@ int	free_data_exit(t_data *data)
 {
 	int		i;
 
-	i = -1;
+	mlx_loop_end(data->mlx);
 	mlx_destroy_image(data->mlx, data->space.tex.img);
 	mlx_destroy_image(data->mlx, data->wall.tex.img);
+	i = -1;
 	while (++i < IMG_NUM_OF_COLLECTIBLE)
 	{
 		mlx_destroy_image(data->mlx, (data->collectible)[i].tex.img);
