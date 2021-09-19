@@ -38,7 +38,7 @@ void	setup_mlx(t_data *data)
 	if (data->mlx == NULL)
 		data_error_exit(data, MALLOC_ERR);
 	data->win = mlx_new_window(data->mlx, IMG_SIZE * data->w,
-			IMG_SIZE * data->h, "so_long");
+			IMG_SIZE * data->h, "so_long_bonus");
 	if (data->win == NULL)
 		data_error_exit(data, MALLOC_ERR);
 }

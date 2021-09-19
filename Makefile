@@ -11,6 +11,20 @@
 # **************************************************************************** #
 
 NAME	=	so_long
+ifdef WITH_BONUS
+SRCDIR	=	./bnssrcs
+SRCLIST	=	so_long_bonus.c \
+			load_map_bonus.c \
+			parse_map_bonus.c \
+			data_init_bonus.c \
+			load_image_utils_bonus.c \
+			draw_bonus.c \
+			hook_bonus.c \
+			move_bonus.c \
+			free_exit_bonus.c \
+			error_bonus.c \
+			utils_bonus.c
+else
 SRCDIR	=	./srcs
 SRCLIST	=	so_long.c \
 			load_map.c \
@@ -23,6 +37,7 @@ SRCLIST	=	so_long.c \
 			free_exit.c \
 			error.c \
 			utils.c
+endif
 SRCS	=	$(addprefix $(SRCDIR)/, $(SRCLIST))
 OBJDIR	=	./objs
 OBJS	=	$(SRCLIST:%.c=$(OBJDIR)/%.o)
@@ -59,4 +74,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus:
+	make WITH_BONUS=1
+
+.PHONY: all clean fclean re bonus
