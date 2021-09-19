@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 23:23:47 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/19 16:48:33 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/20 03:19:46 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ void	reg_hooks(t_data *data)
 	mlx_key_hook(data->win, key_hook, data);
 	mlx_hook(data->win, 33, 1L << 17, free_data_exit, data);
 	mlx_loop_hook(data->mlx, loop_hook, data);
-	//mlx_loop_hook(data->mlx, loop_hook2, data);
 	mlx_loop(data->mlx);
 }
