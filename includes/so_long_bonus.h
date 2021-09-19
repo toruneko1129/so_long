@@ -26,6 +26,8 @@
 # define SUCCESS 0
 # define FAILED 1
 # define LOSE 2
+# define TRUE 1
+# define FALSE 0
 
 //file descriptor
 # define STDIN 0
@@ -67,6 +69,7 @@
 # define IMG_NUM_OF_PLAYER 8
 # define IMG_NUM_OF_ENEMY 8
 # define SWITCH_INTERVAL 10000
+# define MOVE_ENEMY 100000
 
 //keys
 # define ESCAPE 0xff1b
@@ -177,6 +180,7 @@ int				loop_hook(t_data *data);
 
 //move_bonus.c
 int				move_player(int keycode, t_data *data);
+int				move_enemy(int idx, t_data *data);
 
 //free_exit_bonus.c
 void			free_data_error(t_data *data);

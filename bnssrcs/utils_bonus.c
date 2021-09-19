@@ -76,6 +76,7 @@ void	gen_enemy(t_data *data)
 			if ((data->field)[i][j] == '0' && --(data->cnt_s) == val)
 			{
 				(data->field)[i][j] = 'G';
+				data->pos_enemy = (t_grid){.x = j, .y = i};
 				return ;
 			}
 		}

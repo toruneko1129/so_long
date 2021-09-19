@@ -71,5 +71,6 @@ void	reg_hooks(t_data *data)
 	mlx_key_hook(data->win, key_hook, data);
 	mlx_hook(data->win, 33, 1L << 17, free_data_exit, data);
 	mlx_loop_hook(data->mlx, loop_hook, data);
+	//mlx_loop_hook(data->mlx, loop_hook2, data);
 	mlx_loop(data->mlx);
 }
