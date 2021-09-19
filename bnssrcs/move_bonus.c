@@ -43,6 +43,8 @@ int	move_player(int keycode, t_data *data)
 	next = get_next_pos_player(keycode, data);
 	if ((data->field)[next.y][next.x] == '1')
 		return (FAILED);
+	if ((data->field)[next.y][next.x] == 'G')
+		return (LOSE);
 	if (data->is_exit_player)
 		(data->field)[data->pos_player.y][data->pos_player.x] = 'E';
 	else

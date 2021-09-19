@@ -25,6 +25,7 @@
 //status
 # define SUCCESS 0
 # define FAILED 1
+# define LOSE 2
 
 //file descriptor
 # define STDIN 0
@@ -76,6 +77,7 @@
 
 //message
 # define CLEAR "You cleared this stage!!!"
+# define GAMEOVER "GAME OVER You are killed by enemy..."
 
 //error message
 # define ERROR "Error"
@@ -191,5 +193,6 @@ void			get_2darray_size(t_data *data);
 void			free_2darray(char **arr);
 t_image			get_image_from_char(t_data data, char c);
 char			*get_msg_from_keycode(int keycode);
+void			gen_enemy(t_data *data);
 
 #endif

@@ -40,8 +40,10 @@ t_image	get_image_from_char(t_data data, char c)
 		return ((data.collectible)[data.sprite]);
 	else if (c == 'E')
 		return ((data.exit)[data.sprite]);
-	else
+	else if (c == 'P')
 		return ((data.player)[data.player_dir + data.sprite]);
+	else
+		return ((data.enemy)[data.enemy_dir + data.sprite]);
 }
 
 char	*get_msg_from_keycode(int keycode)
@@ -57,4 +59,25 @@ char	*get_msg_from_keycode(int keycode)
 	else if (keycode == A)
 		return ("LEFT ");
 	return (NULL);
+}
+
+void	gen_enemy(t_data *data)
+{
+	const int	val = (int)(ft_rand() % data->cnt_s);
+	int			i;
+	int			j;
+
+	i = -1;
+	while (++i < data->h)
+	{
+		j = -1;
+		while (++j < data->w)
+		{
+			if ((data->field)[i][j] == '0' && --(data->cnt_s) == val)
+			{
+				(data->field)[i][j] = 'G';
+				return ;
+			}
+		}
+	}
 }

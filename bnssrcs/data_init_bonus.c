@@ -32,6 +32,7 @@ void	get_mapinfo(t_data *data)
 				data->pos_player = (t_grid){.x = j, .y = i};
 		}
 	}
+	gen_enemy(data);
 }
 
 void	setup_mlx(t_data *data)
