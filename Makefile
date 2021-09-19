@@ -16,6 +16,7 @@ SRCDIR	=	./bnssrcs
 SRCLIST	=	so_long_bonus.c \
 			load_map_bonus.c \
 			parse_map_bonus.c \
+			random_bonus.c \
 			data_init_bonus.c \
 			load_image_utils_bonus.c \
 			draw_bonus.c \

@@ -17,10 +17,7 @@ int	key_hook(int keycode, t_data *data)
 	static int	cnt = 0;
 
 	if (keycode == ESCAPE)
-	{
-		ft_putendl_fd(get_msg_from_keycode(keycode), STDERR);
 		free_data_exit(data);
-	}
 	else if (keycode == W || keycode == A || keycode == S || keycode == D)
 	{
 		if (!move_player(keycode, data))

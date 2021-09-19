@@ -53,6 +53,7 @@ static void	parse_map(char **field)
 
 static void	play_game(t_data *data)
 {
+	ft_seed(SEED);
 	get_mapinfo(data);
 	setup_mlx(data);
 	load_images(data);

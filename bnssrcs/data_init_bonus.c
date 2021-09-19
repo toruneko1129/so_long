@@ -26,6 +26,8 @@ void	get_mapinfo(t_data *data)
 		{
 			if ((data->field)[i][j] == 'C')
 				++(data->cnt_c);
+			else if ((data->field)[i][j] == '0')
+				++(data->cnt_s);
 			else if ((data->field)[i][j] == 'P')
 				data->pos_player = (t_grid){.x = j, .y = i};
 		}
