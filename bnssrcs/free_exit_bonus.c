@@ -47,12 +47,18 @@ void	free_data_error(t_data *data)
 	free_2darray(data->field);
 }
 
+static void	print_result(t_data *data)
+{
+	if (*(data->msg) != 'M')
+		printf("%s\n", data->msg);
+	free(data->msg);
+}
+
 int	free_data_exit(t_data *data)
 {
 	int		i;
 
-	printf("%s\n", data->msg);
-	free(data->msg);
+	print_result(data);
 	mlx_destroy_image(data->mlx, data->space.tex.img);
 	mlx_destroy_image(data->mlx, data->wall.tex.img);
 	i = -1;
