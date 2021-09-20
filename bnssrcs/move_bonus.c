@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 01:21:48 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/09/19 16:49:04 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/09/20 14:51:26 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,25 +77,21 @@ static int	get_keycode(t_data data)
 	const t_grid	player = data.pos_player;
 	const t_grid	enemy = data.pos_enemy;
 	const int		val[2] = {(int)ft_rand() % 100, (int)ft_rand() % 4};
+	const int		ret[4] = {W, S, D, A};
 
 	if (val[0] < RANDOM_MOVE_RATE)
-	{
-		if (val[1] == 0)
-			return (W);
-		else if (val[1] == 1)
-			return (S);
-		else if (val[1] == 2)
-			return (D);
-		else
-			return (A);
-	}
-	else if (player.y < enemy.y && ft_strchr("0P", (data.field)[enemy.y - 1][enemy.x]) != NULL)
+		return (ret[val[1]]);
+	else if (player.y < enemy.y
+		&& ft_strchr("0P", (data.field)[enemy.y - 1][enemy.x]) != NULL)
 		return (W);
-	else if (player.y > enemy.y && ft_strchr("0P", (data.field)[enemy.y + 1][enemy.x]) != NULL)
+	else if (player.y > enemy.y
+		&& ft_strchr("0P", (data.field)[enemy.y + 1][enemy.x]) != NULL)
 		return (S);
-	else if (player.x > enemy.x && ft_strchr("0P", (data.field)[enemy.y][enemy.x + 1]) != NULL)
+	else if (player.x > enemy.x
+		&& ft_strchr("0P", (data.field)[enemy.y][enemy.x + 1]) != NULL)
 		return (D);
-	else if (player.x < enemy.x && ft_strchr("0P", (data.field)[enemy.y][enemy.x - 1]) != NULL)
+	else if (player.x < enemy.x
+		&& ft_strchr("0P", (data.field)[enemy.y][enemy.x - 1]) != NULL)
 		return (A);
 	return (0);
 }
