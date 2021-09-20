@@ -37,6 +37,7 @@
 //seed
 # ifndef SEED
 #  define SEED 42
+#  define RANDOM_MOVE_RATE 3
 # endif
 # define SEED_MAX 100000
 
@@ -180,7 +181,7 @@ int				loop_hook(t_data *data);
 
 //move_bonus.c
 int				move_player(int keycode, t_data *data);
-int				move_enemy(int idx, t_data *data);
+int				move_enemy(t_data *data);
 
 //free_exit_bonus.c
 void			free_data_error(t_data *data);

@@ -43,25 +43,16 @@ int	key_hook(int keycode, t_data *data)
 static int	loop_hook2(t_data *data)
 {
 	static int	cnt = 0;
-	int			val;
-	int			res;
 
 	if (++cnt == MOVE_ENEMY)
 	{
-		while (1)
-		{
-			val = (int)(ft_rand() % 4);
-			res = move_enemy(val, data);
-			if (res == LOSE)
-			{
-				printf(GAMEOVER);
-				printf("\n");
-				free_data_exit(data);
-			}
-			else if (res == SUCCESS)
-				break ;
-		}
 		cnt = 0;
+		if (move_enemy(data) == LOSE)
+		{
+			printf(GAMEOVER);
+			printf("\n");
+			free_data_exit(data);
+		}
 		draw_tex(data);
 	}
 	return (0);

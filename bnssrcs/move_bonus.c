@@ -72,28 +72,45 @@ int	move_player(int keycode, t_data *data)
 	return (SUCCESS);
 }
 
-static int	get_keycode_from_idx(int idx)
+static int	get_keycode(t_data data)
 {
-	if (idx == 0)
+	const t_grid	player = data.pos_player;
+	const t_grid	enemy = data.pos_enemy;
+	const int		val[2] = {(int)ft_rand() % 100, (int)ft_rand() % 4};
+
+	if (val[0] < RANDOM_MOVE_RATE)
+	{
+		if (val[1] == 0)
+			return (W);
+		else if (val[1] == 1)
+			return (S);
+		else if (val[1] == 2)
+			return (D);
+		else
+			return (A);
+	}
+	else if (player.y < enemy.y && ft_strchr("0P", (data.field)[enemy.y - 1][enemy.x]) != NULL)
 		return (W);
-	else if (idx == 1)
-		return (A);
-	else if (idx == 2)
+	else if (player.y > enemy.y && ft_strchr("0P", (data.field)[enemy.y + 1][enemy.x]) != NULL)
 		return (S);
-	else if (idx == 3)
+	else if (player.x > enemy.x && ft_strchr("0P", (data.field)[enemy.y][enemy.x + 1]) != NULL)
 		return (D);
+	else if (player.x < enemy.x && ft_strchr("0P", (data.field)[enemy.y][enemy.x - 1]) != NULL)
+		return (A);
 	return (0);
 }
 
-int	move_enemy(int idx, t_data *data)
+int	move_enemy(t_data *data)
 {
-	const int	keycode = get_keycode_from_idx(idx);
+	const int	keycode = get_keycode(*data);
 	t_grid		next;
 
+	if (keycode == 0)
+		return (FAILED);
 	next = get_next_pos(keycode, data, FALSE);
 	if ((data->field)[next.y][next.x] == 'P')
 		return (LOSE);
-	if ((data->field)[next.y][next.x] != '0')
+	else if ((data->field)[next.y][next.x] != '0')
 		return (FAILED);
 	(data->field)[data->pos_enemy.y][data->pos_enemy.x] = '0';
 	(data->field)[next.y][next.x] = 'G';

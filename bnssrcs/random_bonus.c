@@ -30,9 +30,13 @@ unsigned int	ft_rand(void)
 
 void	ft_seed(int seed)
 {
-	if (seed < 0)
+	int		cnt;
+
+	cnt = (int)(ft_rand() % 100);
+	if (seed <= 0)
 		return ;
 	seed %= SEED_MAX;
-	while (seed--)
+	while (cnt--)
 		ft_rand();
+	ft_seed(seed - 1);
 }
