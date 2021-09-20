@@ -69,6 +69,7 @@ int	move_player(int keycode, t_data *data)
 		data->is_exit_player = 1;
 	(data->field)[next.y][next.x] = 'P';
 	data->pos_player = next;
+	draw_tex(data);
 	return (SUCCESS);
 }
 

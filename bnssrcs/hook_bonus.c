@@ -76,7 +76,6 @@ static int	loop_hook2(t_data *data)
 			free_data_exit(data);
 		}
 		draw_tex(data);
-		//mlx_string_put(data->mlx, data->win, 0, 0, 0, data->msg);
 	}
 	return (0);
 }
@@ -89,7 +88,6 @@ int	loop_hook(t_data *data)
 	{
 		data->sprite ^= 1;
 		draw_tex(data);
-		//mlx_string_put(data->mlx, data->win, 0, 0, 0, data->msg);
 		cnt = 0;
 	}
 	loop_hook2(data);

@@ -77,6 +77,7 @@ int	draw_tex(t_data *data)
 	tex.addr = mlx_get_data_addr(tex.img, &tex.bits, &tex.line, &tex.endian);
 	draw_map(data, &tex);
 	mlx_put_image_to_window(data->mlx, data->win, tex.img, 0, 0);
+	mlx_string_put(data->mlx, data->win, 20, 20, 0xFFFFFFFF, data->msg);
 	if (data->tex.img != NULL)
 		mlx_destroy_image(data->mlx, data->tex.img);
 	data->tex = tex;
