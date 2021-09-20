@@ -17,6 +17,9 @@ void	get_mapinfo(t_data *data)
 	int		i;
 	int		j;
 
+	data->msg = (char *)ft_calloc(MSG_SIZE, sizeof(char));
+	if (data->msg == NULL)
+		data_error_exit(data, MALLOC_ERR);
 	get_2darray_size(data);
 	i = -1;
 	while (++i < data->h)

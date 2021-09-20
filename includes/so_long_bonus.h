@@ -25,6 +25,8 @@
 //status
 # define SUCCESS 0
 # define FAILED 1
+# define CONTINUE 0
+# define FINISH 1
 # define LOSE 2
 # define TRUE 1
 # define FALSE 0
@@ -37,7 +39,7 @@
 //seed
 # ifndef SEED
 #  define SEED 42
-#  define RANDOM_MOVE_RATE 3
+#  define RANDOM_MOVE_RATE 20
 # endif
 # define SEED_MAX 100000
 
@@ -82,6 +84,7 @@
 //message
 # define CLEAR "You cleared this stage!!!"
 # define GAMEOVER "GAME OVER You are killed by enemy..."
+# define MSG_SIZE 50
 
 //error message
 # define ERROR "Error"
@@ -132,6 +135,7 @@ typedef struct s_data
 	int		sprite;
 	int		player_dir;
 	int		enemy_dir;
+	char	*msg;
 	void	*mlx;
 	void	*win;
 	t_tex	tex;

@@ -76,7 +76,7 @@ static int	get_keycode(t_data data)
 {
 	const t_grid	player = data.pos_player;
 	const t_grid	enemy = data.pos_enemy;
-	const int		val[2] = {(int)ft_rand() % 100, (int)ft_rand() % 4};
+	const int		val[2] = {(int)(ft_rand() % 100), (int)(ft_rand() % 4)};
 	const int		ret[4] = {W, S, D, A};
 
 	if (val[0] < RANDOM_MOVE_RATE)

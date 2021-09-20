@@ -22,6 +22,7 @@ void	free_data_error(t_data *data)
 {
 	int		i;
 
+	free(data->msg);
 	i = -1;
 	destroy_image_nullsafe(data->mlx, data->space.tex.img);
 	destroy_image_nullsafe(data->mlx, data->wall.tex.img);
@@ -50,6 +51,7 @@ int	free_data_exit(t_data *data)
 {
 	int		i;
 
+	free(data->msg);
 	mlx_destroy_image(data->mlx, data->space.tex.img);
 	mlx_destroy_image(data->mlx, data->wall.tex.img);
 	i = -1;
